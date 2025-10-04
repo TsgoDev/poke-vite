@@ -4,7 +4,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">Navbar</router-link>
+      <router-link class="navbar-brand" to="/">PokeVite</router-link>
+      <img src="./assets/icon.svg" alt="Bootstrap" width="30" height="40">
       <button
         class="navbar-toggler"
         type="button"
@@ -35,4 +36,21 @@
   <main class="container">
     <router-view> </router-view>
   </main>
+
+  <!-- Footer -->
+   <footer class="bg-primary text-light">
+    <div><p>&copy{{ new Date().getFullYear() }} Copyright todos os direitos reservados.</p></div>
+   </footer>
 </template>
+
+ <style>
+    footer {
+      position:fixed;
+      bottom:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:50px;
+    }
+   </style>
