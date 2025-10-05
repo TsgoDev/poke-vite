@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <!-- Navbar -->
@@ -38,12 +39,19 @@
   </main>
 
   <!-- Footer -->
-   <footer class="bg-primary text-light">
+   <!-- <footer class="bg-primary text-light">
     <div><p>&copy{{ new Date().getFullYear() }} Copyright todos os direitos reservados.</p></div>
-   </footer>
+   </footer> -->
 </template>
 
  <style>
+  body{
+  overflow: hidden;
+  min-height: 100vh;
+  background: rgb(106,196,233);
+  background: linear-gradient(0deg, rgba(106,196,233,0.9360119047619048) 0%, rgba(0,41,150,1) 100%);
+}
+
     footer {
       position:fixed;
       bottom:0;
