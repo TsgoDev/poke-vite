@@ -1,5 +1,6 @@
-# Vue 3 + Vite
+# Objetivo
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Esse é mais um projeto desenvolvido para fins didáticos com intúito de praticar o desenvolvimento com Vue 3 utilizando Vite e consumindo a API PokeAPI.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+A playlist com o desenvolvimento passo a passo está no YouTube e te convido a acompanhar caso queira aprender ou aprimorar suas abilidades com as técnologias utilizadas.
+<img src="https://user-images.githubusercontent.com/44410208/213874225-3556aefc-cd31-428b-aa2c-787289d8e4a3.png" alt="Curso Vue 3 e Vite">
