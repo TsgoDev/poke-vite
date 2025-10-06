@@ -1,12 +1,11 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">PokeVite</router-link>
-      <img src="./assets/icon.svg" alt="Bootstrap" width="30" height="40">
+      <img src="./assets/icon.svg" alt="Bootstrap" width="30" height="40" />
       <button
         class="navbar-toggler"
         type="button"
@@ -34,31 +33,77 @@
   </nav>
 
   <!-- Main -->
-  <main class="container">
+  <main class="container-fluid">
     <router-view> </router-view>
   </main>
 
   <!-- Footer -->
-   <!-- <footer class="bg-primary text-light">
-    <div><p>&copy{{ new Date().getFullYear() }} Copyright todos os direitos reservados.</p></div>
-   </footer> -->
+  <footer class="bg-primary text-light">
+    <div>
+      <p>
+        &copy{{ new Date().getFullYear() }} Copyright PokeVite
+      </p>
+    </div>
+  </footer>
 </template>
 
- <style>
-  body{
-  overflow: hidden;
+<style>
+body {
+  overflow-y: auto;
   min-height: 100vh;
-  background: rgb(106,196,233);
-  background: linear-gradient(0deg, rgba(106,196,233,0.9360119047619048) 0%, rgba(0,41,150,1) 100%);
+  background: rgb(106, 196, 233);
+  background: linear-gradient(
+    0deg,
+    rgba(106, 196, 233, 0.9360119047619048) 0%,
+    rgba(0, 41, 150, 1) 100%
+  );
 }
 
-    footer {
-      position:fixed;
-      bottom:0;
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      height:50px;
-    }
-   </style>
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  z-index: 1000;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-top: 16px;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar img {
+    width: 25px !important;
+    height: 30px !important;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  footer p {
+    font-size: 0.7rem;
+    padding: 0 10px;
+  }
+}
+</style>

@@ -9,7 +9,7 @@ let urlBaseSvg = ref(
 let pokemons = reactive(ref());
 let searchPokemonField = ref("");
 let pokemonSelected = reactive(ref());
-let loading = ref(false) 
+let loading = ref(false);
 
 // Fetch api
 onMounted(() => {
@@ -34,10 +34,10 @@ const pokemonsFiltered = computed(() => {
 const selectPokemon = async (pokemon) => {
   loading.value = true;
   await fetch(pokemon.url)
-    .then(res => res.json())
-    .then(res => pokemonSelected.value = res)
-    .catch(err => alert(err))
-    .finally(()=>loading.value = false)
+    .then((res) => res.json())
+    .then((res) => (pokemonSelected.value = res))
+    .catch((err) => alert(err))
+    .finally(() => (loading.value = false));
 
   console.log(pokemonSelected.value);
 };
@@ -45,9 +45,9 @@ const selectPokemon = async (pokemon) => {
 
 <template>
   <main>
-    <div class="container text-body-secondary">
-      <div class="row mt-5">
-        <div class="col-sm-12 col-md-6">
+    <div class="container-fluid text-body-secondary">
+      <div class="row g-3 mt-2">
+        <div class="col-12 col-lg-6">
           <CardPokemonSelected
             :name="pokemonSelected?.name"
             :xp="pokemonSelected?.base_experience"
@@ -57,26 +57,28 @@ const selectPokemon = async (pokemon) => {
           />
         </div>
 
-        <div class="col-sm-12 col-md-6">
+        <div class="col-12 col-lg-6">
           <div class="card card-list">
-            <div class="card-body row">
-              <div class="form-group">
+            <div class="card-body">
+              <div class="form-group mb-3">
                 <input
                   v-model="searchPokemonField"
                   type="text"
-                  class="form-control mb-3"
+                  class="form-control"
                   id="searchPokemonField"
                   aria-describedby="emailHelp"
                   placeholder="Buscar..."
                 />
               </div>
-              <ListPokemons
-                v-for="pokemon in pokemonsFiltered"
-                :key="pokemon.name"
-                :name="pokemon.name"
-                :urlBaseSvg="urlBaseSvg + pokemon.url.split('/')[6] + '.svg'"
-                @click="selectPokemon(pokemon)"
-              />
+              <div class="row g-2">
+                <ListPokemons
+                  v-for="pokemon in pokemonsFiltered"
+                  :key="pokemon.name"
+                  :name="pokemon.name"
+                  :urlBaseSvg="urlBaseSvg + pokemon.url.split('/')[6] + '.svg'"
+                  @click="selectPokemon(pokemon)"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -87,9 +89,30 @@ const selectPokemon = async (pokemon) => {
 
 <style scoped>
 .card-list {
- max-height: 450px;
- overflow-y: scroll;
- overflow-x: hidden;
- 
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .card-list {
+    max-height: 350px;
+    margin-bottom: 80px; /* Espaço para o footer */
+  }
+
+  .container-fluid {
+    padding: 0 15px;
+  }
+
+  .row.g-3 {
+    margin-top: 1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-list {
+    max-height: 300px;
+  }
 }
 </style>
